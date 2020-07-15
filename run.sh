@@ -2,13 +2,20 @@
 
 HOST=$1; shift
 TRANSPORT_REQUEST_ID=$1; shift
+APP=$1; shift
+
+[ -z "${HOST}" ] && { echo "No host provided";  exit 1; }
+[ -z "${TRANSPORT_REQUEST_ID}" ] && { echo "No transport request id  provided";  exit 1; }
+[ -z "${APP}" ] && { echo "No application file provided."; exit 1; }
+[ ! -e "${APP}" ] && { echo "Application file ${APP} does not exist"; exit 1; }
 
 CONTENT=content.txt
 COOKIES=mycookies
 
-
 rm -rf ${COOKIES}
 rm -rf ${CONTENT}
+
+APP_ENC=$(cat "${APP}" |base64)
 
 cat << EOF > ${CONTENT}
 <?xml version="1.0" encoding="utf-8"?>
@@ -25,7 +32,7 @@ cat << EOF > ${CONTENT}
         <d:Name>/UI5/MHOLL</d:Name>
         <d:Package>/UI5/UI5_INFRA_APP</d:Package>
         <d:Description>Hello World</d:Description>
-        <d:ZipArchive>UEsDBAoAAAAAAI1t7lAHoerdAgAAAAIAAAAIABwAdGVzdC50eHRVVAkAA5qaDV+bmg1fdXgLAAEEmudsSAQUAAAAYQpQSwECHgMKAAAAAACNbe5QB6Hq3QIAAAACAAAACAAYAAAAAAABAAAApIEAAAAAdGVzdC50eHRVVAUAA5qaDV91eAsAAQSa52xIBBQAAABQSwUGAAAAAAEAAQBOAAAARAAAAAAA</d:ZipArchive>
+        <d:ZipArchive>${APP_ENC}</d:ZipArchive>
         <d:Info/>
       </m:properties>
     </content>
