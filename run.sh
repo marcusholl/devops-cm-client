@@ -22,15 +22,15 @@ cat << EOF > ${CONTENT}
 <entry xml:base="${HOST}/sap/opu/odata/UI5/ABAP_REPOSITORY_SRV/"
        xmlns="http://www.w3.org/2005/Atom" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
-    <id>${HOST}/sap/opu/odata/UI5/ABAP_REPOSITORY_SRV/Repositories('%2FUI5%2FMHOLL')</id>
-    <title type="text">Repositories('%2FUI5%2FMHOLL')</title>
+    <id>${HOST}/sap/opu/odata/UI5/ABAP_REPOSITORY_SRV/Repositories('MHOLL')</id>
+    <title type="text">MHOLL</title>
     <updated>2020-07-14T11:40:33Z</updated>
     <category term="/UI5/ABAP_REPOSITORY_SRV.Repository" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
-    <link href="Repositories('%2FUI5%2FMHOLL')" rel="edit" title="Repository"/>
+    <link href="Repositories('MHOLL')" rel="edit" title="Repository"/>
     <content type="application/xml">
       <m:properties>
-        <d:Name>/UI5/MHOLL</d:Name>
-        <d:Package>/UI5/UI5_INFRA_APP</d:Package>
+        <d:Name>MHOLL</d:Name>
+        <d:Package>MHOLL</d:Package>
         <d:Description>Hello World</d:Description>
         <d:ZipArchive>${APP_ENC}</d:ZipArchive>
         <d:Info/>
