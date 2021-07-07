@@ -1,3 +1,5 @@
+@Library('piper-lib-os') _
+
 node() {
 
   stage('prepare') {
@@ -6,5 +8,9 @@ node() {
 
   stage('build') {
     sh "mvn clean install findbugs:findbugs"
+  }
+
+  stage(publish) {
+    checksPublishResults script: this
   }
 }
