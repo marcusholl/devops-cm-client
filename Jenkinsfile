@@ -11,6 +11,6 @@ node() {
   }
 
   stage('publish') {
-    checksPublishResults script: this
+    checksPublishResults script: this, findbugs: true
   }
 }
