@@ -7,10 +7,10 @@ node() {
   } 
 
   stage('build') {
-    sh 'mvn clean install findbugs:findbugs checkstyle:checkstyle'
+    sh "mvn clean install findbugs:findbugs"
   }
 
   stage('publish') {
-    checksPublishResults script: this, findbugs: true, checkstyle: true
+    checksPublishResults script: this, findbugs: true
   }
 }
