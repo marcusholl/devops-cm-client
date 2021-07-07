@@ -10,7 +10,7 @@ node() {
     sh "mvn clean install findbugs:findbugs"
   }
 
-  stage(publish) {
+  stage('publish') {
     checksPublishResults script: this
   }
 }
